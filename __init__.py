@@ -1,5 +1,5 @@
 import requests
-import 
+import json
 
 class CommunityDocs():
     def __init__(self, URL, UserCode, debug_message):
@@ -7,20 +7,27 @@ class CommunityDocs():
         self.URL = URL
         self.debug_message = debug_message
         self.UC = UserCode
-
-
+        
         if self.URL == "":
             self.URL = "https://communitydocs.gadaidev.repl.co/"
         if self.debug_message:
             print(f"[ API ] HELLO: CommunityDocs API 2.0")
             print(f"[ Info ] Start:Connect {self.URL}")
         
-        requests.get(self.URL)
+        self.apijson = requests.get(f"{self.URL}/API.txt")
+        self.API_Json = json.loads(self.apijson.content.decode())
+        self.SiteName = self.API_Json["Name"]
+        self.APIBlock = self.API_Json["APIBlock"]
         
 
         if self.debug_message:
             print("[ OK ] Success:Connect")
-    
+            print(f"[ Info ] SiteName\t\t{SiteName}\nAPIBlock\t\t{self.APIBlock}")
+            if self.APIBlock:
+                print(f"[ Error ] API BLOCK")
+        if self.APIBlock:
+            exit()
+            
     def debug_message_onoff(self, mode:bool):
         self.debug_message = mode
 
