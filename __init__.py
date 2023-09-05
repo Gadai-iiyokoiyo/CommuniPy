@@ -45,5 +45,6 @@ class CommunityDocs():
         if self.debug_message:
             print("[ Info ] Start:Post")
             print(f"[ Info ] Data:[URL=\"{self.URL}\"\nUsercode=\"{self.UC}\"\nTitle=\"{title}\"\nText=\"{text}\"\nPageID=\"{PageID}\"]")
-        requests.post(f"{self.URL}/comment/", {"code":PageID, "title":title, "text":text, "uc":self.UC})
-        
+        requests.post(f"{self.URL}/comment", {"code":PageID, "title":title, "text":text, "uc":self.UC})
+        if self.debug_message:
+            print("[ OK ] Success: Comment Post")
