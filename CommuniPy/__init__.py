@@ -41,5 +41,9 @@ class CommunityDocs():
             if response_str == "Invalid UserCode":
                 print("[ Error ] UserCode:Invalid UserCode")
             print("[ OK ] Success:Post")
-    
-    
+    def comment(self, PageID, title, text):
+        if self.debug_message:
+            print("[ Info ] Start:Post")
+            print(f"[ Info ] Data:[URL=\"{self.URL}\"\nUsercode=\"{self.UC}\"\nTitle=\"{title}\"\nText=\"{text}\"\nPageID=\"{PageID}\"]"")
+        requests.post(f"{self.URL}/comment/", {"code":PageID, "title":title, "text":text, "uc":self.UC})
+        
