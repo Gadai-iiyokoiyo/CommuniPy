@@ -1,4 +1,6 @@
 import requests
+import 
+
 class CommunityDocs():
     def __init__(self, URL, UserCode, debug_message):
         
@@ -10,6 +12,7 @@ class CommunityDocs():
         if self.URL == "":
             self.URL = "https://communitydocs.gadaidev.repl.co/"
         if self.debug_message:
+            print(f"[ API ] HELLO: CommunityDocs API 2.0")
             print(f"[ Info ] Start:Connect {self.URL}")
         
         requests.get(self.URL)
@@ -48,3 +51,13 @@ class CommunityDocs():
         requests.post(f"{self.URL}/comment", {"code":PageID, "title":title, "text":text, "uc":self.UC})
         if self.debug_message:
             print("[ OK ] Success: Comment Post")
+
+class Element_image():
+    def __init__(url):
+        return f"<img src='{url}'>"
+
+class Element_link():
+    def __init__(text, url):
+        if text == "":
+            text = url
+        return f"<a href='{url}'>{text}</a>"
