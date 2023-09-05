@@ -22,7 +22,7 @@ class CommunityDocs():
 
         if self.debug_message:
             print("[ OK ] Success:Connect")
-            print(f"[ Info ] SiteName\t\t{SiteName}\nAPIBlock\t\t{self.APIBlock}")
+            print(f"[ Info ] SiteName\t\t{self.SiteName}\nAPIBlock\t\t{self.APIBlock}")
             if self.APIBlock:
                 print(f"[ Error ] API BLOCK")
         if self.APIBlock:
