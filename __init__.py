@@ -22,7 +22,7 @@ class CommunityDocs():
 
         if self.debug_message:
             print("[ OK ] Success:Connect")
-            print(f"[ Info ] SiteName\t\t{self.SiteName}\nAPIBlock\t\t{self.APIBlock}")
+            print(f"[ Info ]\n|SiteName\t{self.SiteName}\n|APIBlock\t{self.APIBlock}")
             if self.APIBlock:
                 print(f"[ Error ] API BLOCK")
         if self.APIBlock:
@@ -34,7 +34,7 @@ class CommunityDocs():
     def post(self, title:str, text:str):
         if self.debug_message:
             print("[ Info ] Start:Post")
-            print(f"[ Info ] Data:[URL=\"{self.URL}\"\nUsercode=\"{self.UC}\"\nTitle=\"{title}\"\nText=\"{text}\"]")
+            print(f"[ Info ] \n|URL\t{self.URL}\n|Usercode\t{self.UC}\n|Title\t{title}\n|Text\t{text}")
         
         title = title.replace(">","≻")
         title = title.replace("<","≺")
@@ -54,7 +54,7 @@ class CommunityDocs():
     def comment(self, PageID, title, text):
         if self.debug_message:
             print("[ Info ] Start:Post")
-            print(f"[ Info ] Data:[URL=\"{self.URL}\"\nUsercode=\"{self.UC}\"\nTitle=\"{title}\"\nText=\"{text}\"\nPageID=\"{PageID}\"]")
+            print(f"[ Info ] \n|URL\t{self.URL}\n|Usercode\t{self.UC}\n|Title\t{title}\n|Text\t{text}\n|")
         requests.post(f"{self.URL}/comment", {"code":PageID, "title":title, "text":text, "uc":self.UC})
         if self.debug_message:
             print("[ OK ] Success: Comment Post")
